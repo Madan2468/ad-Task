@@ -40,7 +40,7 @@ export function HeroSection() {
                 onClick={handleResourcesClick} 
                 className="text-white text-[14px] transition-colors hover:text-gray-300"
               >
-                Resources
+                Chatbot
               </button>
               <a href="#" className="text-white text-[14px] transition-colors">
                 Pricing
