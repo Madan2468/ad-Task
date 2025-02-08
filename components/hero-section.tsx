@@ -79,14 +79,12 @@ export function HeroSection() {
         </h1> */}
 
 
-<h1 className="text-[100px] font-bold leading-none mb-8 relative group transition-all duration-300">
+<h1 className="text-[100px] font-bold leading-none mb-8 relative group transition-all duration-700">
   <span className="relative">
-    {/* Main Text with Gradient */}
-    <span className="bg-clip-text text-transparent bg-gradient-to-t from-gray-500 to-white">
+    <span className="bg-clip-text text-transparent bg-gradient-to-t from-gray-500 to-white transition-all duration-700 ease-in-out">
       adTask.ai
     </span>
-    {/* Outward Glow Effect */}
-    <span className="absolute inset-0 flex items-center justify-center text-gray-300 opacity-20 blur-2xl transition-all duration-500 group-hover:opacity-80 group-hover:blur-[20px]">
+    <span className="absolute inset-0 flex items-center justify-center text-gray-300 opacity-20 blur-2xl transition-all duration-700 ease-in-out group-hover:opacity-80 group-hover:blur-[20px]">
       adTask.ai
     </span>
   </span>
@@ -170,7 +168,7 @@ export function HeroSection() {
             #333b4f 0deg,
             #566999 360deg
           );
-          animation: video-glow 2s infinite ease-in-out;
+          animation: video-glow 3s infinite cubic-bezier(0.4, 0, 0.2, 1);
         }
         .video-bg {
           background: linear-gradient(0deg, #ffffff, #ffffff),

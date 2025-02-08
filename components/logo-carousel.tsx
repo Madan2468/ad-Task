@@ -24,24 +24,30 @@ export function LogoCarousel() {
 
 	return (
 		<div className="flex flex-col gap-16 py-16">
-			<section className="relative py-12 overflow-hidden ">
+			<section className="relative py-12 overflow-hidden">
 				<div className="max-w-6xl mx-auto px-6">
-					<div className="flex items-center">
+					<div className="relative flex overflow-hidden">
 						<motion.div
 							className="flex gap-16 items-center"
-							initial={{ x: "0%" }}
-							animate={{ x: "-100%" }}
+							animate={{
+								x: "-50%"
+							}}
 							transition={{
-								ease: "linear",
 								duration: 15,
-								repeat: Number.POSITIVE_INFINITY,
+								repeat: Infinity,
+								ease: "linear",
+								repeatType: "mirror"
+							}}
+							style={{
+								willChange: "transform"
 							}}
 						>
 							{[...logos, ...logos].map((logo, index) => (
 								<motion.div
 									key={index}
-									whileHover={{ scale: 1.1, opacity: 1 }}
-									className="w-32 h-16 flex items-center justify-center relative opacity-80 transition hover:opacity-100"
+									whileHover={{ scale: 1.05 }}
+									transition={{ type: "spring", stiffness: 400, damping: 17 }}
+									className="w-32 h-16 flex items-center justify-center relative opacity-80 hover:opacity-100 transition-opacity duration-200"
 								>
 									<Image
 										src={logo.src || "/placeholder.svg"}
@@ -67,37 +73,41 @@ export function LogoCarousel() {
 						<motion.div
 							key={platform.name}
 							className="relative group flex flex-col items-center"
-							onHoverStart={() =>
-								setHoveredPlatform(platform.name)
-							}
+							onHoverStart={() => setHoveredPlatform(platform.name)}
 							onHoverEnd={() => setHoveredPlatform(null)}
 						>
 							<motion.div
-								animate={
-									hoveredPlatform === platform.name
-										? { y: -10 }
-										: { y: 0 }
-								}
-								transition={{ type: "spring", stiffness: 300 }}
-								className="flex flex-col items-center relaive"
+								initial={{ y: 0 }}
+								animate={{ y: hoveredPlatform === platform.name ? -10 : 0 }}
+								transition={{
+									type: "spring",
+									stiffness: 300,
+									damping: 25
+								}}
+								className="flex flex-col items-center relative"
 							>
 								<Image
 									src={platform.icon || "/placeholder.svg"}
 									alt={platform.name}
 									width={100}
 									height={100}
-									className="opacity-90 transition-all group-hover:scale-110"
+									className="opacity-90 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105"
 									style={{
-										zIndex : "1",
-										position : "relative"
+										zIndex: "1",
+										position: "relative"
 									}}
 								/>
-								{/* Show platform name when hovered */}
-								{hoveredPlatform === platform.name && (
-									<p className="text-white mt-4 text-sm">
-										{platform.name}
-									</p>
-								)}
+								<motion.p
+									initial={{ opacity: 0, y: 5 }}
+									animate={{ 
+										opacity: hoveredPlatform === platform.name ? 1 : 0,
+										y: hoveredPlatform === platform.name ? 0 : 5
+									}}
+									transition={{ duration: 0.2 }}
+									className="text-white mt-4 text-sm absolute -bottom-8"
+								>
+									{platform.name}
+								</motion.p>
 							</motion.div>
 						</motion.div>
 					))}
