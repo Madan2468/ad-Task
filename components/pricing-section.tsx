@@ -39,10 +39,9 @@ const plans = [
 ];
 
 export function PricingSection() {
-	return (
+	/* return (
 		<section className="relative py-20 px-4 bg-[#050506] overflow-hidden">
-			{/* Pricing section temporarily hidden */}
-			{/* <div className="absolute bottom-[-200px] left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#4c5fd5] opacity-20 blur-[200px] rounded-full"></div>
+			<div className="absolute bottom-[-200px] left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#4c5fd5] opacity-20 blur-[200px] rounded-full"></div>
 
 			<motion.div
 				initial={{ opacity: 0 }}
@@ -107,7 +106,7 @@ export function PricingSection() {
 						</p> : null}
 					</motion.div>
 				))}
-			</div> */}
+			</div>
 
 			<style>
 				{`
@@ -123,5 +122,6 @@ export function PricingSection() {
 				`}
 			</style>
 		</section>
-	);
+	); */
+	return null;
 }

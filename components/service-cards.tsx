@@ -92,7 +92,8 @@ export function ServiceCards() {
     <img src="/sparkle2.gif" alt="Foreground GIF" className="w-70 h-70 opacity-80" />
   </span>
 
-  <span className="relative z-10">Contact Us</span>
+  <span className="relative z-10">Contact Us</span> 
+	
 </button>
 
 
