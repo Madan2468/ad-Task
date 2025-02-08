@@ -99,28 +99,25 @@ export default function FeatureCards() {
               {feature.image && (
                 <Image
                   src={feature.image}
-                  alt={feature.title}
+                  alt="Feature illustration"
                   layout="fill"
                   objectFit="cover"
                   className="absolute inset-0 w-full h-full opacity-100"
                 />
               )}
 
-              {console.log("feature.image : ",feature.image)}
-
               {/* Content Overlay */}
               <div className="absolute z-10 flex flex-col items-center text-center mt-[350px] pt-[50px]">
-                {feature.icon && (
-                  <div className="w-16 h-16 mb-4 flex items-center justify-center">
-                    {feature.icon}
-                  </div>
+                {feature.title && (
+                  <h3 className="text-xl font-semibold text-white mb-3">
+                    {feature.title}
+                  </h3>
                 )}
-                <h3 className="text-xl font-semibold text-white mb-3">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  {feature.description}
-                </p>
+                {feature.description && (
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    {feature.description}
+                  </p>
+                )}
               </div>
             </motion.div>
           ))}
